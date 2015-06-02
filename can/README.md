@@ -4,6 +4,7 @@
 
 1. [Common pitfails](#common-pitfails)
 2. [Communication between components](#communication-between-components)
+3. [Component lifecycle](#component-lifecycle)
 
 ## Common pitfails
 
@@ -40,12 +41,75 @@
     console.log(obj.prop); // some
     ```
 
+  - [1.3](#1.3) <a name='1.3'></a> **Dont set can objects as default values at prototypes**: Objects are shared between instances, so it can have unexpected side effects. When you need to use this 'feature', please comment a parameter. [Or check this fiddle](http://jsfiddle.net/sb8smx9L/)
+
+    ```javascript
+    
+    can.Component.extend({
+        tag: "my-comp",
+        viewModel: {
+
+            // will be shared
+            someObject: new can.Map(),
+
+            // will work as default
+            anotherObject: {},
+        }
+    });
+
+    ```
+
 **[⬆ back to top](#table-of-contents)**
 
 ## Communication between components
 
-  - [2.1] **Best page which explains passing data/events between components**: [Improving communication and message passing between components](https://github.com/bitovi/canjs/issues/1209). It's a feature request but it sumarizes all current ways to use can.Components.
+  - [2.1](#2.1) <a name='2.1'></a>  **Best page which explains passing data/events between components**: [Improving communication and message passing between components](https://github.com/bitovi/canjs/issues/1209). It's a feature request but it sumarizes all current ways to use can.Components.
 
 **[⬆ back to top](#table-of-contents)**
+
+## Component lifecycle
+
+  - [3.1](#3.1) <a name='3.1'></a>  **It's good to know the call order of init methods**: [Or check this fiddle](http://jsfiddle.net/sb8smx9L/)
+
+    1. Init at ViewModel
+    2. Init at Events
+    3. --render--
+    4. Init at Component
+
+    ```javascript
+
+
+    var Component = can.Component.extend({
+        tag: 'click-counter',
+        template: '<a href="javascript://" can-click="updateCount">' 
+                    + 'Click Me</a>'
+                    + '<p id="msg">Clicked{{countCompute}} times'
+                    + '</p>',
+        init: function(element, options) {
+            // called third
+            console.log('Component init', element, options);
+        },
+        viewModel: {
+            count: 0,
+     
+            init: function(inputData) {
+                // called first
+                console.log('Scope init', inputData);
+            },
+            updateCount: function() {
+                this.attr('count', this.count + 1);
+                this.attr('anotherShare.shared', this.anotherShare.shared + 1);
+                this.attr('sharedMap.shared', this.sharedMap.shared + 1);
+            }
+        },
+        events: {
+            init: function(arrayOfElements, scope) {
+                // called second
+                console.log('Events init', arrayOfElements, scope);
+            }
+        }
+    });
+
+    ```
 
 # }

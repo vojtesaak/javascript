@@ -1310,7 +1310,7 @@
         this.set('lightsaber', lightsaber);
     }
 
-    Jedi.prototype = {
+    var prototype = {
 
         /**
          *
@@ -1326,6 +1326,9 @@
             return this[key];
         }
     };
+
+    extend(Jedi.prototype, prototype);
+
     ```
 
 **[⬆ back to top](#table-of-contents)**
@@ -1340,7 +1343,10 @@
         console.log('new jedi');
     }
 
-    // not so good
+    // inherits always after constructor
+    util.inherits(Jedi, events.EventEmitter);
+
+    // not good, but working
     Jedi.prototype.fight = function fight() {
         console.log('fighting');
     };
@@ -1349,8 +1355,9 @@
         console.log('blocking');
     };
 
-    // good when there is no inheritance
+    // bad, overrides prototype (dont use even there is no "inherits")
     Jedi.prototype = {
+
         fight: function fight() {
             console.log('fighting');
         },
@@ -1360,38 +1367,61 @@
         }
     };
 
-    // inheritance right after prototype
-    util.inherits(Jedi, events.EventEmitter);
+    // good and nice
+    var prototype = {
+
+        fight: function fight() {
+            console.log('fighting');
+        },
+
+        block: function block() {
+            console.log('blocking');
+        }
+    };
+
+    extend(Jedi.prototype, prototype);
+    
     
     ```
 
   - Methods can return `this` to help with method chaining.
 
     ```javascript
+
     // bad
-    Jedi.prototype.jump = function() {
-        this.jumping = true;
-        return true;
+    var prototype = {
+
+        jump: function() {
+            this.jumping = true;
+            return true;
+        },
+
+        setHeight: function(height) {
+            this.height = height;
+        }
     };
 
-    Jedi.prototype.setHeight = function(height) {
-        this.height = height;
-    };
-
+    extend(Jedi.prototype, prototype);
+    
     var luke = new Jedi();
     luke.jump(); // => true
     luke.setHeight(20); // => undefined
 
     // good
-    Jedi.prototype.jump = function() {
-        this.jumping = true;
-        return this;
+    var prototype = {
+
+        jump: function() {
+            this.jumping = true;
+            return this;
+        },
+
+        setHeight: function(height) {
+            this.height = height;
+            return this;
+        }
     };
 
-    Jedi.prototype.setHeight = function(height) {
-        this.height = height;
-        return this;
-    };
+    extend(Jedi.prototype, prototype);
 
     var luke = new Jedi();
 
@@ -1408,13 +1438,19 @@
         this.name = options.name || 'no name';
     }
 
-    Jedi.prototype.getName = function getName() {
-        return this.name;
+    var prototype = {
+
+        getName: function getName() {
+            return this.name;
+        },
+
+        toString: function toString() {
+            return 'Jedi - ' + this.getName();
+        }
     };
 
-    Jedi.prototype.toString = function toString() {
-        return 'Jedi - ' + this.getName();
-    };
+    extend(Jedi.prototype, prototype);
+
     ```
 
 **[⬆ back to top](#table-of-contents)**

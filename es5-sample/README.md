@@ -4,6 +4,11 @@
 'use strict';
 
 var fs = require('fs');
+var util = require("util");
+var events = require("events");
+
+//any object extend library
+var extend = require('extend'); 
 
 /**
  * Creates a new Person.
@@ -19,7 +24,11 @@ function Classname(var1, var2) {
     }
 }
 
-Classname.prototype = {
+// inherits always after constructor
+util.inherits(Classname, events.EventEmitter);
+
+// we dont like this syntax: Classname.prototype.publicMethod = function() {
+var prototype = {
 
     CONSTANT_1: 1,
     CONSTANT_2: 2,
@@ -74,9 +83,9 @@ Classname.prototype = {
             console.log(res, bar, self._privateProperty);
         };
     }
-
-
 };
+
+extend(Classname.prototype, prototype);
 
 module.exports = Classname;
 
@@ -91,7 +100,7 @@ var Classname = require('./Classname');
 var cfg = require('../../config');
 var fs = require('fs');
 
-module.exports = {
+var service = {
 
     /* A CACHED VALUE */
     _cachedSomething: null,
@@ -138,6 +147,8 @@ module.exports = {
 
 };
 
-module.exports._initialize();
+service._initialize();
+
+module.exports = service;
 
 ```
