@@ -93,23 +93,38 @@
     + max. 4-5 arguments in method (use instance of a Class, when u need more)
     + max 3-4 nested blocs (ifs/cycles/functions) in a method
 
-**[⬆ back to top](#table-of-contents)**
+  - [5.3](#5.3) <a name='5.3'></a> **Keep names when using require:**
 
-## Quick tips
+```javascript
 
-  - [2.1](#2.1) <a name='2.1'></a> Use `const` for all of your references; avoid using `var`.
+// bad
+var service = require('./someServiceName');
+var someClassName = require('./someClassName');
+var mongo = require('mongodb');
 
-  > Why? This ensures that you can't reassign your references (mutation), which can lead to bugs and difficult to comprehend code.
+// good
+var someServiceName = require('./someServiceName');
+var SomeClassName = require('./someClassName');
+var mongodb = require('mongodb');
 
-    ```javascript
-    // bad
-    var a = 1;
-    var b = 2;
+```
+  
+  - [5.4](#5.4) <a name='5.4'></a> **JSON does not guarantee property order in object, but MongoDB does:**
 
-    // good
-    const a = 1;
-    const b = 2;
-    ```
+```javascript
+
+db.test.update({_id: 'abc'}, {
+    $addToSet: {
+      field: {
+        $each: [ 
+          {a: 1, b: 2}, 
+          {b: 2, a: 1}  // not the same object !!!
+          ]
+      }
+    }
+  });
+
+```
 
 
 **[⬆ back to top](#table-of-contents)**
