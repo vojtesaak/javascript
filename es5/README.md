@@ -165,7 +165,7 @@
   - To convert an array-like object to an array, use Array#slice.
 
     ```javascript
-    function trigger() {
+    function trigger () {
         var args = Array.prototype.slice.call(arguments);
         ...
     }
@@ -233,7 +233,7 @@
     length = messages.length;
 
     // bad
-    function inbox(messages) {
+    function inbox (messages) {
         items = '<ul>';
 
         for (i = 0; i < length; i++) {
@@ -244,7 +244,7 @@
     }
 
     // good
-    function inbox(messages) {
+    function inbox (messages) {
         items = [];
 
         for (i = 0; i < length; i++) {
@@ -265,12 +265,12 @@
 
     ```javascript
     // bad
-    var anonymous = function() {
+    var anonymous = function () {
         return true;
     };
 
     // named function expression
-    var named = function named() {
+    var named = function named () {
         return true;
     };
 
@@ -286,7 +286,7 @@
     ```javascript
     // bad
     if (currentUser) {
-        function test() {
+        function test () {
             console.log('Nope.');
         }
     }
@@ -294,7 +294,7 @@
     // good
     var test;
     if (currentUser) {
-        test = function test() {
+        test = function test () {
             console.log('Yup.');
         };
     }
@@ -304,12 +304,12 @@
 
     ```javascript
     // bad
-    function nope(name, options, arguments) {
+    function nope (name, options, arguments) {
         // ...stuff...
     }
 
     // good
-    function yup(name, options, args) {
+    function yup (name, options, args) {
         // ...stuff...
     }
     ```
@@ -343,7 +343,7 @@
         age: 28
     };
 
-    function getProp(prop) {
+    function getProp (prop) {
         return luke[prop];
     }
 
@@ -415,7 +415,7 @@
 
     ```javascript
     // bad
-    function() {
+    function () {
         test();
         console.log('doing stuff..');
 
@@ -431,7 +431,7 @@
     }
 
     // good
-    function() {
+    function () {
         var name = getName();
 
         test();
@@ -447,7 +447,7 @@
     }
 
     // bad - unnessary function call
-    function() {
+    function () {
         var name = getName();
 
         if (!arguments.length) {
@@ -460,7 +460,7 @@
     }
 
     // good
-    function() {
+    function () {
         var name;
 
         if (!arguments.length) {
@@ -484,7 +484,7 @@
     ```javascript
     // we know this wouldn't work (assuming there
     // is no notDefined global variable)
-    function example() {
+    function example () {
         console.log(notDefined); // => throws a ReferenceError
     }
 
@@ -492,7 +492,7 @@
     // reference the variable will work due to
     // variable hoisting. Note: the assignment
     // value of `true` is not hoisted.
-    function example() {
+    function example () {
         console.log(declaredButNotAssigned); // => undefined
         var declaredButNotAssigned = true;
     }
@@ -500,7 +500,7 @@
     // The interpreter is hoisting the variable
     // declaration to the top of the scope,
     // which means our example could be rewritten as:
-    function example() {
+    function example () {
         var declaredButNotAssigned;
         console.log(declaredButNotAssigned); // => undefined
         declaredButNotAssigned = true;
@@ -510,12 +510,12 @@
   - Anonymous function expressions hoist their variable name, but not the function assignment.
 
     ```javascript
-    function example() {
+    function example () {
         console.log(anonymous); // => undefined
 
         anonymous(); // => TypeError anonymous is not a function
 
-        var anonymous = function() {
+        var anonymous = function () {
             console.log('anonymous function expression');
         };
     }
@@ -524,26 +524,26 @@
   - Named function expressions hoist the variable name, not the function name or the function body.
 
     ```javascript
-    function example() {
+    function example () {
         console.log(named); // => undefined
 
         named(); // => TypeError named is not a function
 
         superPower(); // => ReferenceError superPower is not defined
 
-        var named = function superPower() {
+        var named = function superPower () {
             console.log('Flying');
         };
     }
 
     // the same is true when the function name
     // is the same as the variable name.
-    function example() {
+    function example () {
         console.log(named); // => undefined
 
         named(); // => TypeError named is not a function
 
-        var named = function named() {
+        var named = function named () {
             console.log('named');
         }
     }
@@ -552,10 +552,10 @@
   - Function declarations hoist their name and the function body.
 
     ```javascript
-    function example() {
+    function example () {
         superPower(); // => Flying
 
-        function superPower() {
+        function superPower () {
             console.log('Flying');
         }
     }
@@ -654,10 +654,10 @@
     }
 
     // bad
-    function() { return false; }
+    function () { return false; }
 
     // good
-    function() {
+    function () {
         return false;
     }
     ```
@@ -699,7 +699,7 @@
     //
     // @param {String} tag
     // @return {Element} element
-    function make(tag) {
+    function make (tag) {
 
         // ...stuff...
 
@@ -714,7 +714,7 @@
      * @param {String} tag
      * @return {Element} element
      */
-    function make(tag) {
+    function make (tag) {
 
         // ...stuff...
 
@@ -733,7 +733,7 @@
     var active = true;
 
     // bad
-    function getType() {
+    function getType () {
         console.log('fetching type...');
         // set the default type to 'no type'
         var type = this._type || 'no type';
@@ -742,7 +742,7 @@
     }
 
     // good
-    function getType() {
+    function getType () {
         console.log('fetching type...');
 
         // set the default type to 'no type'
@@ -757,7 +757,7 @@
   - Use `// FIXME:` to annotate problems.
 
     ```javascript
-    function Calculator() {
+    function Calculator () {
 
         // @FIXME: shouldn't use a global here
         total = 0;
@@ -769,7 +769,7 @@
   - Use `// TODO:` to annotate solutions to problems.
 
     ```javascript
-    function Calculator() {
+    function Calculator () {
 
         // @TODO: total should be configurable by an options param
         this.total = 0;
@@ -787,17 +787,17 @@
 
     ```javascript
     // bad
-    function() {
+    function () {
     ∙∙var name;
     }
 
     // bad
-    function() {
+    function () {
     ∙var name;
     }
 
     // good
-    function() {
+    function () {
     ∙∙∙∙var name;
     }
     ```
@@ -806,12 +806,12 @@
 
     ```javascript
     // bad
-    function test(){
+    function test (){
         console.log('test');
     }
 
     // good
-    function test() {
+    function test () {
         console.log('test');
     }
 
@@ -828,7 +828,7 @@
     });
     ```
 
-  - Place 1 space before the opening parenthesis in control statements (`if`, `while` etc.). Place no space before the argument list in function calls and declarations.
+  - Place 1 space before the opening parenthesis in control statements (`if`, `while` etc.). Place no space before the argument list in function calls, but place space in function declarations.
 
     ```javascript
     // bad
@@ -842,12 +842,12 @@
     }
 
     // bad
-    function fight () {
+    function fight() {
        console.log ('Swooosh!');
     }
 
     // good
-    function fight() {
+    function fight () {
        console.log('Swooosh!');
     }
     ```
@@ -866,14 +866,14 @@
 
     ```javascript
     // bad
-    (function(global) {
+    (function (global) {
       // ...stuff...
     })(this);
     ```
 
     ```javascript
     // bad
-    (function(global) {
+    (function (global) {
       // ...stuff...
     })(this);↵
     ↵
@@ -881,7 +881,7 @@
 
     ```javascript
     // good
-    (function(global) {
+    (function (global) {
       // ...stuff...
     })(this);↵
     ```
@@ -945,19 +945,19 @@
 
     // bad
     var obj = {
-        foo: function() {
+        foo: function () {
         },
-        bar: function() {
+        bar: function () {
         }
     };
     return obj;
 
     // good
     var obj = {
-        foo: function() {
+        foo: function () {
         },
 
-        bar: function() {
+        bar: function () {
         }
     };
 
@@ -1040,13 +1040,13 @@
 
     ```javascript
     // bad
-    (function() {
+    (function () {
         var name = 'Skywalker'
         return name
     })()
 
     // good
-    (function() {
+    (function () {
         var name = 'Skywalker';
         return name;
     })();
@@ -1145,12 +1145,12 @@
 
     ```javascript
     // bad
-    function q() {
+    function q () {
         // ...stuff...
     }
 
     // good
-    function query() {
+    function query () {
         // ..stuff..
     }
     ```
@@ -1162,18 +1162,18 @@
     var OBJEcttsssss = {};
     var this_is_my_object = {};
     var o = {};
-    function c() {}
+    function c () {}
 
     // good
     var thisIsMyObject = {};
-    function thisIsMyFunction() {}
+    function thisIsMyFunction () {}
     ```
 
   - Use PascalCase when naming constructors or classes.
 
     ```javascript
     // bad
-    function user(options) {
+    function user (options) {
         this.name = options.name;
     }
 
@@ -1182,7 +1182,7 @@
     });
 
     // good
-    function User(options) {
+    function User (options) {
         this.name = options.name;
     }
 
@@ -1206,7 +1206,7 @@
 
     ```javascript
     // bad
-    function() {
+    function () {
       var _this = this;
       return function() {
         console.log(_this);
@@ -1214,7 +1214,7 @@
     }
 
     // bad
-    function() {
+    function () {
       var that = this;
       return function() {
         console.log(that);
@@ -1222,7 +1222,7 @@
     }
 
     // good
-    function() {
+    function () {
       var self = this;
       return function named() {
         console.log(self);
@@ -1234,12 +1234,12 @@
 
     ```javascript
     // bad
-    var log = function(msg) {
+    var log = function (msg) {
       console.log(msg);
     };
 
     // good
-    var log = function log(msg) {
+    var log = function log (msg) {
       console.log(msg);
     };
     ```
@@ -1304,7 +1304,7 @@
   - It's okay to create get() and set() functions, but be consistent.
 
     ```javascript
-    function Jedi(options) {
+    function Jedi (options) {
         options || (options = {});
         var lightsaber = options.lightsaber || 'blue';
         this.set('lightsaber', lightsaber);
@@ -1315,14 +1315,14 @@
         /**
          *
          */
-        set: function(key, val) {
+        set: function (key, val) {
             this[key] = val;
         },
 
         /**
          *
          */
-        get: function(key) {
+        get: function (key) {
             return this[key];
         }
     };
@@ -1339,7 +1339,7 @@
   - Assign methods to the prototype object, instead of overwriting the prototype with a new object. Overwriting the prototype makes inheritance impossible: by resetting the prototype you'll overwrite the base!
 
     ```javascript
-    function Jedi() {
+    function Jedi () {
         console.log('new jedi');
     }
 
@@ -1347,22 +1347,22 @@
     util.inherits(Jedi, events.EventEmitter);
 
     // not good, but working
-    Jedi.prototype.fight = function fight() {
+    Jedi.prototype.fight = function fight () {
         console.log('fighting');
     };
 
-    Jedi.prototype.block = function block() {
+    Jedi.prototype.block = function block () {
         console.log('blocking');
     };
 
     // bad, overrides prototype (dont use even there is no "inherits")
     Jedi.prototype = {
 
-        fight: function fight() {
+        fight: function fight () {
             console.log('fighting');
         },
 
-        block: function block() {
+        block: function block () {
             console.log('blocking');
         }
     };
@@ -1370,11 +1370,11 @@
     // good and nice
     var prototype = {
 
-        fight: function fight() {
+        fight: function fight () {
             console.log('fighting');
         },
 
-        block: function block() {
+        block: function block () {
             console.log('blocking');
         }
     };
@@ -1391,12 +1391,12 @@
     // bad
     var prototype = {
 
-        jump: function() {
+        jump: function () {
             this.jumping = true;
             return true;
         },
 
-        setHeight: function(height) {
+        setHeight: function (height) {
             this.height = height;
         }
     };
@@ -1410,12 +1410,12 @@
     // good
     var prototype = {
 
-        jump: function() {
+        jump: function () {
             this.jumping = true;
             return this;
         },
 
-        setHeight: function(height) {
+        setHeight: function (height) {
             this.height = height;
             return this;
         }
@@ -1433,18 +1433,18 @@
   - It's okay to write a custom toString() method, just make sure it works successfully and causes no side effects.
 
     ```javascript
-    function Jedi(options) {
+    function Jedi (options) {
         options || (options = {});
         this.name = options.name || 'no name';
     }
 
     var prototype = {
 
-        getName: function getName() {
+        getName: function getName () {
             return this.name;
         },
 
-        toString: function toString() {
+        toString: function toString () {
             return 'Jedi - ' + this.getName();
         }
     };
@@ -1466,7 +1466,7 @@
 
     ...
 
-    $(this).on('listingUpdated', function(e, listingId) {
+    $(this).on('listingUpdated', function (e, listingId) {
         // do something with listingId
     });
     ```
@@ -1479,7 +1479,7 @@
 
     ...
 
-    $(this).on('listingUpdated', function(e, data) {
+    $(this).on('listingUpdated', function (e, data) {
         // do something with data.listingId
     });
     ```
@@ -1525,7 +1525,7 @@
 
     ```javascript
     // bad
-    function setSidebar() {
+    function setSidebar () {
         can.$('.sidebar').hide();
 
         // ...stuff...
@@ -1536,7 +1536,7 @@
     }
 
     // good
-    function setSidebar() {
+    function setSidebar () {
         var $sidebar = can.$('.sidebar');
         $sidebar.hide();
 

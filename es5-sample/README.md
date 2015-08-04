@@ -16,7 +16,7 @@ var extend = require('extend');
  * @param {Object[]} [var2] Array of Objects. Brackets means, it's optional
  * @class
  */
-function Classname(var1, var2) {
+function Classname (var1, var2) {
     this.publicProperty = var1;
 
     if (var2 === null) {
@@ -52,7 +52,7 @@ var prototype = {
      * @param {boolean} someArg
      * @returns {number}
      */
-    publicMethod: function(someArg) {
+    publicMethod: function (someArg) {
         // descriptive IF's are better!
         var argIsValid = typeof someArg === 'string'
             && someArg.match(/^K/);
@@ -71,15 +71,15 @@ var prototype = {
      * @param {boolean} someArg
      * @private
      */
-    _privateMethod: function(path, bar)
+    _privateMethod: function (path, bar)
     {
         fs.stat(path, this._callbackFactory(bar));
     },
 
-    _callbackFactory: function(bar)
+    _callbackFactory: function (bar)
     {
         var self = this;
-        return function someCallback(err, res) {
+        return function someCallback (err, res) {
             console.log(res, bar, self._privateProperty);
         };
     }
@@ -105,7 +105,7 @@ var service = {
     /* A CACHED VALUE */
     _cachedSomething: null,
 
-    _initialize: function() {
+    _initialize: function () {
         // private initialization
     },
 
@@ -115,7 +115,7 @@ var service = {
      * @param {boolean} someArg
      * @returns {Classname}
      */
-    aSampleFactory: function(someArg) {
+    aSampleFactory: function (someArg) {
         
         var ret = new Classname(someArg);
 
@@ -127,10 +127,10 @@ var service = {
      *
      * @param {function} callback
      */
-    getSomethingLazily: function(callback) {
+    getSomethingLazily: function (callback) {
         if (this._cachedSomething === null) {
             var self = this;
-            fs.stat('somefile.txt', function loadSomeFile(err, res) {
+            fs.stat('somefile.txt', function loadSomeFile (err, res) {
 
                 // deep: 4 levels max 
                 if (err === null) {

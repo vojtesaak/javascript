@@ -78,7 +78,7 @@
 
     ```javascript
     
-    publicMethod: function(foo, bar, callback) {
+    publicMethod: function (foo, bar, callback) {
         this.doSomethink(foo)
             .then(this._nextMethod(bar))
             .then(callback);
