@@ -52,8 +52,8 @@
 
 ## Code Standards and the best practices
 
-- **One Rule = One Line**  **( mandatory for PAY project )**
-- **One Selector = One Line**  **( mandatory for PAY project )**
+- **One Rule = One Line**  ( mandatory for PAY project )
+- **One Selector = One Line**  ( mandatory for PAY project )
 - **Indent the rules**
 - **Keep your class and ID names easy to follow**
 - **Try to keep nesting Deph under 6 level**
