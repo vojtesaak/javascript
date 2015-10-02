@@ -58,9 +58,12 @@
 
 1. **One Rule = One Line**  ( mandatory for PAY project )
 	```css
-	.classname { border: 0; background: #FFF; } //wrong
 	
-	.classname { //correct
+	//wrong
+	.classname { border: 0; background: #FFF; } 
+	
+	//correct
+	.classname { 
 		background: #FFF;
 		border: 0;
 		color: #252525;
@@ -72,9 +75,11 @@
 2. **One Selector = One Line**  ( mandatory for PAY project )
 	```css
 	
-	html,body { margin:0; padding: 0 } //wrong
+	//wrong
+	html,body { margin:0; padding: 0 } 
 	
-	body, //correct
+	//correct
+	body, 
 	html {
 		margin: #FFF;
 		padding: 0;
@@ -84,13 +89,15 @@
 3. **Indent the rules**
 	```css
 	
-	html, //wrong
+	//wrong
+	html, 
 	body { 
 	margin:0; 
 	padding: 0 
 	} 
 	
-	body, //correct
+	//correct
+	body, 
 	html {
 		margin: #FFF;
 		padding: 0;
