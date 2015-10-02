@@ -2,11 +2,11 @@
 
 ## Table of Contents
 
-    1. [Less](#Less)
-    1. [Less structure and files](#less-structure-and-files)
-    1. [File and directory description](#file-and-directory-description)
-    1. [Code Standards and the best practices](#code-standards-and-the-best-practices)
-    1. [Font icons](#font-icons)
+    1.[Less](#Less)
+    1.[Less structure and files](#less-structure-and-files)
+    1.[File and directory description](#file-and-directory-description)
+    1.[Code Standards and the best practices](#code-standards-and-the-best-practices)
+    1.[Font icons](#font-icons)
 
 
 ## Less
