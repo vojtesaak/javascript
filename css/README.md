@@ -56,47 +56,47 @@
 
 ## Code Standards and the best practices
 
-1 **One Rule = One Line**  ( mandatory for PAY project )
-```css
-.classname { border: 0; background: #FFF; } //wrong
-
-.classname { //correct
-	background: #FFF;
-	border: 0;
-	color: #252525;
-	float: left;
-	margin: 0;
-	padding: 0;
-}
- ```
+1. **One Rule = One Line**  ( mandatory for PAY project )
+	```css
+	.classname { border: 0; background: #FFF; } //wrong
+	
+	.classname { //correct
+		background: #FFF;
+		border: 0;
+		color: #252525;
+		float: left;
+		margin: 0;
+		padding: 0;
+	}
+	 ```
 2. **One Selector = One Line**  ( mandatory for PAY project )
-```css
-
-html,body { margin:0; padding: 0 } //wrong
-
-body, //correct
-html {
-	margin: #FFF;
-	padding: 0;
-}
-
- ```
+	```css
+	
+	html,body { margin:0; padding: 0 } //wrong
+	
+	body, //correct
+	html {
+		margin: #FFF;
+		padding: 0;
+	}
+	
+	 ```
 3. **Indent the rules**
-```css
-
-html, //wrong
-body { 
-margin:0; 
-padding: 0 
-} 
-
-body, //correct
-html {
-	margin: #FFF;
-	padding: 0;
-}
-
- ```
+	```css
+	
+	html, //wrong
+	body { 
+	margin:0; 
+	padding: 0 
+	} 
+	
+	body, //correct
+	html {
+		margin: #FFF;
+		padding: 0;
+	}
+	
+	 ```
 4. **Keep your class and ID names easy to follow**
 5. **Try to keep nesting Deph under 6 level**
 
