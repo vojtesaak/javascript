@@ -57,6 +57,18 @@
 ## Code Standards and the best practices
 
 - **One Rule = One Line**  ( mandatory for PAY project )
+```css
+.classname { border: 0; }
+
+.classname {
+	background: #FFF;
+	border: 0;
+	color: #252525;
+	float: left;
+	margin: 0;
+	padding: 0;
+}
+ ```
 - **One Selector = One Line**  ( mandatory for PAY project )
 - **Indent the rules**
 - **Keep your class and ID names easy to follow**
