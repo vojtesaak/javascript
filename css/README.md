@@ -56,7 +56,7 @@
 
 ## Code Standards and the best practices
 
-- **One Rule = One Line**  ( mandatory for PAY project )
+1 **One Rule = One Line**  ( mandatory for PAY project )
 ```css
 .classname { border: 0; background: #FFF; } //wrong
 
@@ -69,7 +69,7 @@
 	padding: 0;
 }
  ```
-- **One Selector = One Line**  ( mandatory for PAY project )
+1. **One Selector = One Line**  ( mandatory for PAY project )
 ```css
 
 html,body { margin:0; padding: 0 } //wrong
@@ -81,7 +81,7 @@ html {
 }
 
  ```
-- **Indent the rules**
+1. **Indent the rules**
 ```css
 
 html, //wrong
@@ -97,8 +97,8 @@ html {
 }
 
  ```
-- **Keep your class and ID names easy to follow**
-- **Try to keep nesting Deph under 6 level**
+1. **Keep your class and ID names easy to follow**
+1. **Try to keep nesting Deph under 6 level**
 
 
 
