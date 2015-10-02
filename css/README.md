@@ -30,7 +30,7 @@
     │   └── fonts.less 
     ├── layout.less
     ├── global.less
-    ├── variables.less
+    ├── vars.less
     └── main.less
 
    ```
