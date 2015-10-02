@@ -58,9 +58,9 @@
 
 - **One Rule = One Line**  ( mandatory for PAY project )
 ```css
-.classname { border: 0; }
+.classname { border: 0; background: #FFF; } //wrong
 
-.classname {
+.classname { //correct
 	background: #FFF;
 	border: 0;
 	color: #252525;
@@ -70,7 +70,33 @@
 }
  ```
 - **One Selector = One Line**  ( mandatory for PAY project )
+```css
+
+html,body { margin:0; padding: 0 } //wrong
+
+body, //correct
+html {
+	margin: #FFF;
+	padding: 0;
+}
+
+ ```
 - **Indent the rules**
+```css
+
+html, //wrong
+body { 
+margin:0; 
+padding: 0 
+} 
+
+body, //correct
+html {
+	margin: #FFF;
+	padding: 0;
+}
+
+ ```
 - **Keep your class and ID names easy to follow**
 - **Try to keep nesting Deph under 6 level**
 
