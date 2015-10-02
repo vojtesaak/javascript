@@ -56,7 +56,7 @@
 
 ## Code Standards and the best practices
 
-1. **One Rule = One Line**  ( mandatory for PAY project )
+1. **One Rule = One Line … Multiple Rules = Multiple Lines**  ( mandatory for PAY project )
 	```css
 	
 	//wrong
