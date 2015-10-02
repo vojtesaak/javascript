@@ -15,6 +15,7 @@
 [Less](http://lesscss.org/)
 
 
+
 ## Less structure and files
 
 ```javascript
@@ -34,6 +35,8 @@
 
    ```
 
+
+
 ## File and directory description
 
 - **vendor**: directory for 3rd-party libraries such a lesshat.less, animations.less, jQuery-ui.less etc. These files must not be modified but you can overload these css rules in other files.
@@ -50,6 +53,7 @@
 
 
 
+
 ## Code Standards and the best practices
 
 - **One Rule = One Line**  ( mandatory for PAY project )
@@ -57,6 +61,7 @@
 - **Indent the rules**
 - **Keep your class and ID names easy to follow**
 - **Try to keep nesting Deph under 6 level**
+
 
 
 
