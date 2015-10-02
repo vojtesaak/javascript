@@ -69,7 +69,7 @@
 	padding: 0;
 }
  ```
-1. **One Selector = One Line**  ( mandatory for PAY project )
+2. **One Selector = One Line**  ( mandatory for PAY project )
 ```css
 
 html,body { margin:0; padding: 0 } //wrong
@@ -81,7 +81,7 @@ html {
 }
 
  ```
-1. **Indent the rules**
+3. **Indent the rules**
 ```css
 
 html, //wrong
@@ -97,8 +97,8 @@ html {
 }
 
  ```
-1. **Keep your class and ID names easy to follow**
-1. **Try to keep nesting Deph under 6 level**
+4. **Keep your class and ID names easy to follow**
+5. **Try to keep nesting Deph under 6 level**
 
 
 
